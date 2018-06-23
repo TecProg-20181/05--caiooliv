@@ -3,7 +3,6 @@ import diskspace
 from diskspace import *
 import os
 import subprocess
-import re
 import sys
 import StringIO
 
@@ -13,6 +12,7 @@ class testDiskSpace(unittest.TestCase):
     def test_subprocess_check_output(self):
         command = 'ls'
         check = subprocess.check_output(command)
+        self.assertEqual(diskspace.subprocess_check_output(command),check)
 
 
     def test_bytes_to_readable(self):
